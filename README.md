@@ -93,10 +93,8 @@ house-price-prediction-ames/
 │   ├── housing_iteration_6_regression.csv              # Regression training data (1,460 houses)
 │   └── housing_iteration_6_regression_data_dictionary.txt
 ├── notebooks/
-│   ├── classification/
-│   │   └── House_classification_models.ipynb           # All 3 classifiers: Random Forest, Logistic Regression, SVM (GridSearchCV)
-│   └── regression/
-│       └── Regression_house.ipynb                      # Feature selection screening + XGBoost/Linear Regression
+│   ├── House_classification_models.ipynb               # All 3 classifiers: Random Forest, Logistic Regression, SVM (GridSearchCV)             
+│   ├── Regression_house.ipynb                          # Feature selection screening + XGBoost/Linear Regression
 └── images/
     ├── leaderboard_ds053.png                           # Course competition leaderboard (5th place, 97.88%)
     ├── classification_confusion_matrices.png           # Confusion matrices for all 3 classifiers
