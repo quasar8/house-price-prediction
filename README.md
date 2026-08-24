@@ -108,11 +108,9 @@ house-price-prediction-ames/
 ![Confusion Matrices](images/classification_confusion_matrices.png)
 *Confusion matrices for all three classifiers on the 292-row held-out test set. Logistic Regression makes the fewest total errors (8), balancing false positives and false negatives better than the other two models.*
  
-![Feature Selection Comparison](images/regression_feature_selection_comparison.png)
-*R² for all 14 tested (baseline + feature-selection) configurations, evaluated on both proxy models. The winning method for each model is circled — Collinearity (0.90) for Decision Tree, RFECV for KNN — visually confirming the two models need opposite feature-selection strategies.*
  
 ![Leaderboard](images/leaderboard_ds053.png)
-*Course-wide competition leaderboard (DS#053) — the classification submission placed 5th among classmates with 97.88% accuracy.*
+*Course-wide competition leaderboard (in WBS Coding School - DS#053) — the classification submission placed 5th among classmates with 97.88% accuracy.*
  
 ## 🔗 How to Use This Project
  
