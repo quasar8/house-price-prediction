@@ -108,12 +108,13 @@ house-price-prediction-ames/
  
 ![Leaderboard](images/leaderboard_ds053.png)
 *Course-wide competition leaderboard (in WBS Coding School - DS#053) — the classification submission placed 5th among classmates with 97.88% accuracy.*
- 
+
+
 ## 🔗 How to Use This Project
- 
-1. **Classification:** Open `notebooks/classification/House_classification_models.ipynb` — it's self-contained and runs all three models in sequence (data loading → preprocessing → Random Forest → Logistic Regression → SVM, each with its own evaluation and submission file). Logistic Regression has the strongest test-set results.
-2. **Regression:** Open `notebooks/regression/Regression_house.ipynb` to see the full feature-selection screening process followed by the final XGBoost and Linear Regression models.
-3. **Data:** All datasets are included in `/data`.
+
+1. **Data:** Download the relevant CSV(s) from `/data`, upload them to your own Google Drive, then get each file's shareable link (right-click → Share → "Anyone with the link" → Copy link) and grab the ID between `/d/` and `/view`.
+2. **Classification:** Open `notebooks/House_classification_models.ipynb`, paste your own file IDs into the `file_id` / `file_id1` variables (training data + competition test set), then run all cells — it's self-contained and runs all three models in sequence (data loading → preprocessing → Random Forest → Logistic Regression → SVM, each with its own evaluation and submission file). Logistic Regression has the strongest test-set results.
+3. **Regression:** Open `notebooks/Regression_house.ipynb`, paste your own file ID into the `file_id` variable, then run all cells to see the full feature-selection screening process followed by the final XGBoost and Linear Regression models.
 4. **Run the Code:** Open any notebook in Google Colab or Jupyter and run all cells top to bottom.
 5. **Dependencies:** `pandas`, `numpy`, `scikit-learn`, `xgboost`. No special setup required beyond a standard Python data-science environment.
 
