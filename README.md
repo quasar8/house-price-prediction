@@ -63,10 +63,71 @@ Five feature-selection techniques were screened against two fast "proxy" models 
 - **RFECV** gave KNN its best result by far (R² 0.850 vs. 0.716 baseline) — but only by discarding 240 of 248 features, keeping just 8: `GarageCars`, `GrLivArea`, `1stFlrSF`, `TotalBsmtSF`, `YearBuilt`, `OverallQual`, `LotArea`, `BsmtFinSF1`.
 - This split decided the final architecture: **tree-based models use the Collinearity-filtered 229-feature set; distance/linear models use the RFECV-selected 8-feature set.**
 - Final models, tuned with `GridSearchCV` (5-fold CV, scored on RMSE of log(SalePrice)):
+
 | Model | Feature Set | Best Parameters | CV RMSE (log price) |
 |---|---|---|---|
 | **XGBoost** | Collinearity-filtered (229 features) | `n_estimators=700, max_depth=3, learning_rate=0.1` | **0.1331** |
 | Linear Regression | RFECV-selected (8 features) | — | 0.1786 |
- 
+
 - Takeaway: the "mathematically best" feature count is not one-size-fits-all — KNN's best result came from throwing away 97% of engineered features, while the Decision Tree needed to keep the vast majority of them. XGBoost, trained on the tree-family's feature set, was the clear regression champion.
+
+
+## 🛠️ Technologies Used
+ 
+- **Programming:** Python
+- **Libraries:** pandas, numpy, scikit-learn, xgboost, matplotlib
+- **Machine Learning — Classification:** Random Forest, Logistic Regression, Support Vector Machine (SVC), GridSearchCV
+- **Machine Learning — Regression:** Decision Tree, KNN, XGBoost, Linear Regression; feature selection via Variance Threshold, Collinearity Filtering, SelectKBest, SelectFromModel, RFECV; GridSearchCV
+- **Environment:** Google Colab
+
+
+ ## 📁 Project Structure
+ 
+```
+house-price-prediction-ames/
+├── README.md                                          # This file
+├── data/
+│   ├── housing_iteration_5_classification.csv         # Classification training data (1,460 houses)
+│   ├── housing_iteration_5_classification_data_dictionary.txt
+│   ├── test_set.csv                                    # Classification competition test set (1,459 houses)
+│   ├── housing_iteration_6_regression.csv              # Regression training data (1,460 houses)
+│   └── housing_iteration_6_regression_data_dictionary.txt
+├── notebooks/
+│   ├── classification/
+│   │   └── House_classification_models.ipynb           # All 3 classifiers: Random Forest, Logistic Regression, SVM (GridSearchCV)
+│   └── regression/
+│       └── Regression_house.ipynb                      # Feature selection screening + XGBoost/Linear Regression
+└── images/
+    ├── leaderboard_ds053.png                           # Course competition leaderboard (5th place, 97.88%)
+    ├── classification_confusion_matrices.png           # Confusion matrices for all 3 classifiers
+    └── regression_feature_selection_comparison.png     # R² by feature-selection method (DT vs. KNN)
+```
+
+## 📈 Visualisations
+ 
+![Confusion Matrices](images/classification_confusion_matrices.png)
+*Confusion matrices for all three classifiers on the 292-row held-out test set. Logistic Regression makes the fewest total errors (8), balancing false positives and false negatives better than the other two models.*
+ 
+![Feature Selection Comparison](images/regression_feature_selection_comparison.png)
+*R² for all 14 tested (baseline + feature-selection) configurations, evaluated on both proxy models. The winning method for each model is circled — Collinearity (0.90) for Decision Tree, RFECV for KNN — visually confirming the two models need opposite feature-selection strategies.*
+ 
+![Leaderboard](images/leaderboard_ds053.png)
+*Course-wide competition leaderboard (DS#053) — the classification submission placed 5th among classmates with 97.88% accuracy.*
+ 
+## 🔗 How to Use This Project
+ 
+1. **Classification:** Open `notebooks/classification/House_classification_models.ipynb` — it's self-contained and runs all three models in sequence (data loading → preprocessing → Random Forest → Logistic Regression → SVM, each with its own evaluation and submission file). Logistic Regression has the strongest test-set results.
+2. **Regression:** Open `notebooks/regression/Regression_house.ipynb` to see the full feature-selection screening process followed by the final XGBoost and Linear Regression models.
+3. **Data:** All datasets are included in `/data`.
+4. **Run the Code:** Open any notebook in Google Colab or Jupyter and run all cells top to bottom.
+5. **Dependencies:** `pandas`, `numpy`, `scikit-learn`, `xgboost`. No special setup required beyond a standard Python data-science environment.
+
+
+## 👥 Contact
+ 
+- **Name:** Safak Koclu
+- **Email:** [koclusafak@gmail.com](mailto:koclusafak@gmail.com)
+- **LinkedIn:** [My LinkedIn Profile](https://www.linkedin.com/in/safak-koclu/)
+- **GitHub:** [My GitHub Profile](https://github.com/quasar8)
+ 
 
