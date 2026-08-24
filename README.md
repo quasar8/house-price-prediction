@@ -98,7 +98,6 @@ house-price-prediction-ames/
 └── images/
     ├── leaderboard_ds053.png                           # Course competition leaderboard (5th place, 97.88%)
     ├── classification_confusion_matrices.png           # Confusion matrices for all 3 classifiers
-    └── regression_feature_selection_comparison.png     # R² by feature-selection method (DT vs. KNN)
 ```
 
 ## 📈 Visualisations
